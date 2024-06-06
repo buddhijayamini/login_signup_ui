@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:login_signup_ui/pages/LoginScreen.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
-    );
-  }
+  runApp(MaterialApp(
+    home: LoginScreen(),
+    debugShowCheckedModeBanner: false,
+    theme: ThemeData(
+      primarySwatch: Colors.blueGrey,
+      brightness: Brightness.light,
+    ),
+    darkTheme: ThemeData(
+      brightness: Brightness.dark,
+      primaryColor: Colors.black,
+      scaffoldBackgroundColor: Colors.grey[900],
+    ),
+    themeMode: ThemeMode.system,
+  ));
 }

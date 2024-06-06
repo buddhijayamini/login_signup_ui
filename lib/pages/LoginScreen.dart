@@ -1,135 +1,129 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup_ui/component/custom_button.dart';
+import 'package:login_signup_ui/component/custom_textfield.dart';
+import 'package:login_signup_ui/component/social_button.dart';
 import 'package:login_signup_ui/pages/SignupScreen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Get the screen width
-    double screenWidth = MediaQuery.of(context).size.width;
-
-    // Calculate padding based on screen width
-    double paddingValue = screenWidth * 0.05; // 5% of screen width
-
-    // Calculate image height based on screen width and aspect ratio
-    double imageHeight = screenWidth * 9 / 16; // 16:9 aspect ratio
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(paddingValue),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Use AspectRatio to set the aspect ratio of the image
-            AspectRatio(
-              aspectRatio: 16 / 9, // Adjust as needed
-              child: Image.asset(
-                'assets/welcome.webp',
-                fit: BoxFit.cover, // Cover the entire space
-              ),
-            ),
-            const SizedBox(height: 16), // Added space below the image
-            const Text(
-              'Welcome back!',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.black, // Set text color to white
-              ),
-            ),
-            const Text(
-              'Log in to your existing account of Q Allure',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 8), // Adjusted height for spacing
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.1,
+            vertical: screenHeight * 0.05,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/welcome.jpg', height: screenHeight * 0.25),
+              SizedBox(height: screenHeight * 0.005),
+              Text(
+                'Welcome back!',
+                style: TextStyle(
+                  fontSize: screenWidth * 0.06,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-            const SizedBox(height: 8), // Adjusted height for spacing
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                ),
+              SizedBox(height: screenHeight * 0.005),
+              Text(
+                'Log in to your existing account of Q Allure',
+                style: TextStyle(fontSize: screenWidth * 0.04),
               ),
-            ),
-            const SizedBox(height: 8), // Adjusted height for spacing
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.black), // Set text color to white
-                ),
+              SizedBox(height: screenHeight * 0.04),
+              CustomTextField(
+                hintText: 'Email',
+                icon: Icons.person,
+                defaultText: 'Johnwilliasm@gmail.com',
               ),
-            ),
-            const SizedBox(height: 8), // Adjusted height for spacing
-            ElevatedButton(
-              onPressed: () {},
-              // ignore: sort_child_properties_last
-              child: const Text('LOG IN', style: TextStyle(color: Colors.white)), // Set text color to white
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                ),
+              CustomTextField(
+                hintText: 'Password',
+                icon: Icons.lock,
+                obscureText: true,
+                defaultText: '',
               ),
-            ),
-            const SizedBox(height: 4), // Adjusted height for spacing
-            const Text('Or connect using', style: TextStyle(color: Colors.white)), // Set text color to white
-            const SizedBox(height: 4),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.facebook, color: Colors.white), // Set icon color to white
-                  label: const Text('Facebook', style: TextStyle(color: Colors.white)), // Set text color to white
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue[800],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10), // Rounded corners
-                    ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    // Handle forgot password
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                        fontSize: screenWidth * 0.035, color: Colors.black),
                   ),
                 ),
-                const SizedBox(width: 2),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const Icon(Icons.email, color: Colors.white), // Set icon color to white
-                  label: const Text('Google', style: TextStyle(color: Colors.white)), // Set text color to white
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10), // Rounded corners
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 2), // Adjusted height for spacing
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignupScreen()),
-                );
-              },
-              child: const Text(
-                "Don't have an account? Sign Up",
-                style: TextStyle(color: Colors.black), // Set text color to white
               ),
-            ),
-          ],
+              CustomButton(
+                text: 'LOG IN',
+                onPressed: () {
+                  // Handle login
+                },
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Text(
+                'or continue using',
+                style: TextStyle(fontSize: screenWidth * 0.035),
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialButton(
+                    icon: Icons.facebook,
+                    label: 'Facebook',
+                    onPressed: () {
+                      // Handle Facebook login
+                    },
+                  ),
+                  SizedBox(width: screenWidth * 0.05),
+                  SocialButton(
+                    icon: Icons.email,
+                    backgroundColor: Colors.redAccent,
+                    label: 'Google',
+                    onPressed: () {
+                      // Handle Google login
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.004),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignupScreen()),
+                  );
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don’t have an account? ',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.035,
+                        color: Colors.black, // Set text color to black
+                      ),
+                    ),
+                    Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.035,
+                        color: const Color.fromARGB(255, 33, 121, 194), // Set text color to blue
+                        fontWeight:
+                            FontWeight.bold, // Optionally, make "Sign Up" bold
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
