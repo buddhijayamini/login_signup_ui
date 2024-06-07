@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(width: screenWidth * 0.05),
                     SocialButton(
-                    icon: Icons.g_translate,
+                    icon: Icons.g_mobiledata_rounded,
                     backgroundColor: Colors.redAccent,
                     label: 'Google',
                     onPressed: () {
