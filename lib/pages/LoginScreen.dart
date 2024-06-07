@@ -82,8 +82,8 @@ class LoginScreen extends StatelessWidget {
                     },
                   ),
                   SizedBox(width: screenWidth * 0.05),
-                  SocialButton(
-                    icon: Icons.email,
+                    SocialButton(
+                    icon: Icons.g_translate,
                     backgroundColor: Colors.redAccent,
                     label: 'Google',
                     onPressed: () {

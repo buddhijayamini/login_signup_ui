@@ -32,8 +32,8 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: screenHeight * 0.02),
               Text(
-                'Create an account to Aluraf get all features',
-                style: TextStyle(fontSize: screenWidth * 0.04),
+                'Create an account to Q Allure to get all features',
+                style: TextStyle(fontSize: screenWidth * 0.03),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: screenHeight * 0.04),

@@ -35,7 +35,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextField(
         controller: _controller,
         obscureText: widget.obscureText,
-        style: const TextStyle(color: Color.fromARGB(255, 8, 73, 184)),
+        style: const TextStyle(color: Color.fromARGB(255, 6, 59, 150)),
         decoration: InputDecoration(
           hintText: widget.hintText,
           hintStyle: Theme.of(context).inputDecorationTheme.hintStyle,
@@ -43,7 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           fillColor: Colors.white,
           prefixIcon: Icon(
             widget.icon,
-            color: _isFocused ? Colors.blue : Colors.blueGrey,
+            color: _isFocused ? Colors.blue : Color.fromARGB(255, 194, 181, 189),
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
